@@ -10,7 +10,7 @@ def preprocess_localiza_data(carros_csv: str, vendas_csv: str):
         vendas_df, carros_df, left_on="MODELO", right_on="MODELO"
     ).rename(columns=lambda x: x.lower().replace(" ", "_"))
 
-    final_df["modelo"] = final_df["modelo"].str.lstrip("MODELO")
-    final_df["marca"] = final_df["marca"].str.lstrip("MARCA")
+    final_df["modelo"] = final_df["modelo"].str.lstrip("MODELO").str.strip()
+    final_df["marca"] = final_df["marca"].str.lstrip("MARCA").str.strip()
 
     return final_df
