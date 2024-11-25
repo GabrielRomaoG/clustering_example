@@ -13,4 +13,22 @@ def preprocess_localiza_data(carros_csv: str, vendas_csv: str):
     final_df["modelo"] = final_df["modelo"].str.lstrip("MODELO").str.strip()
     final_df["marca"] = final_df["marca"].str.lstrip("MARCA").str.strip()
 
-    return final_df
+    dtype_mapping = {
+        "modelo": "category",
+        "genero": "category",
+        "idade": "uint8",
+        "tempo_no_estoque": "uint32",
+        "kilometragem": "uint32",
+        "valor_a_vista": "float32",
+        "desconto_percentual": "float64",
+        "valor_parcela": "float64",
+        "qt_parcelas": "uint16",
+        "recomprador": "uint8",
+        "carro_na_troca": "uint8",
+        "comprou_na_cidade_que_mora": "uint8",
+        "marca": "category",
+        "carroceria": "category",
+        "preco_padrao": "float64",
+    }
+
+    return final_df.astype(dtype_mapping)
