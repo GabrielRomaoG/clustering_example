@@ -1,4 +1,4 @@
-# Teste Localiza
+# Exemplo de um modelo de Clustering
 
 ## Preprocessamento
 
